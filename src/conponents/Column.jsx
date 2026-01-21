@@ -6,12 +6,12 @@ import { updateTask } from "../features/taskSlice";
 const Column = React.memo(({ title, status,count })=>{
 const { task } = useSelector((state) => state.task);
 const dispatch = useDispatch()
- console.log("task",task)
+
   const filteredTasks = task.filter((t) => t.status === status);
  const handleDrop=useCallback((e)=>{
  e.preventDefault()
        const id = e.dataTransfer.getData("taskId");
-       console.log("drag,",id)
+       
         if(id){
           dispatch(updateTaskStatus({id  , status}))
         }
